@@ -23,7 +23,7 @@ jobs:
       uses: appleboy/scp-action@v0.1.7
       with:
         host: "ec2-user@ec2-3-234-252-49.compute-1.amazonaws.com"
-        username: "ecs2_user"
+        username: "ec2_user"
         key: "-----BEGIN RSA PRIVATE KEY-----
 MIIEogIBAAKCAQEAn6Hyec7k6rlOgxeesD9gq95GnbTLl9Myv9184xJuOIDNEzcL
 rvcQhEb9vypUCR1IPPqlKUdEZFFXtiF4ymOUaVJDhH3dImtfYk77/EMt0onnne16
@@ -52,7 +52,7 @@ RkQUpo+GlFWF+JAo6QQSH5kPBiv30uMgzwNZEA3FBwiN2sLJzhQZA7Qh9pjLxVcK
 DrU4jQ5l4EJKovv0dw4ngrcJzL7DPVicZP1mXNi+htmND4JYMak=
 -----END RSA PRIVATE KEY-----"
         source: "templates,assets,main"
-        target: /home/$ecs2_user
+        target: /home/ecs2_user
 
     - name: Restart service
       uses: appleboy/ssh-action@v1.0.3

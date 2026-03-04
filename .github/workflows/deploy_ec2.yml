@@ -52,7 +52,7 @@ RkQUpo+GlFWF+JAo6QQSH5kPBiv30uMgzwNZEA3FBwiN2sLJzhQZA7Qh9pjLxVcK
 DrU4jQ5l4EJKovv0dw4ngrcJzL7DPVicZP1mXNi+htmND4JYMak=
 -----END RSA PRIVATE KEY-----"
         source: "templates,assets,main"
-        target: /home/ecs2_user
+        target: /home/ec2_user
 
     - name: Restart service
       uses: appleboy/ssh-action@v1.0.3

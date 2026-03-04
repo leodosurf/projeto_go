@@ -20,8 +20,8 @@ jobs:
 #          username: cviniciussdias
 #          password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
-      - name: Constrói e envia imagem docker
-        uses: docker/build-push-action@v6
-        with:
-          push: true
-          tags: cviniciussdias/projeto_go:latest,cviniciussdias/projeto_go:${{ github.sha }}
+#      - name: Constrói e envia imagem docker
+#       uses: docker/build-push-action@v6
+#        with:
+#          push: true
+#          tags: cviniciussdias/projeto_go:latest,cviniciussdias/projeto_go:${{ github.sha }}

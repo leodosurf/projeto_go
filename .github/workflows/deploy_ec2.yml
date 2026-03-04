@@ -22,37 +22,11 @@ jobs:
     - name: SCP to EC2
       uses: appleboy/scp-action@v0.1.7
       with:
-        host: "ec2-user@ec2-3-234-252-49.compute-1.amazonaws.com"
-        username: "ec2_user"
-        key: "-----BEGIN RSA PRIVATE KEY-----
-MIIEogIBAAKCAQEAn6Hyec7k6rlOgxeesD9gq95GnbTLl9Myv9184xJuOIDNEzcL
-rvcQhEb9vypUCR1IPPqlKUdEZFFXtiF4ymOUaVJDhH3dImtfYk77/EMt0onnne16
-aR1q3ko67P02sSs0ghgwCuRi8SClK7JLSI/4+yJOSLgssaZhv+JbclskQoaQ0qTx
-0O5iBsiW+9NiCdieCujuznUadLbbtRzRpQ3wioDppMHfMEAapUANr90IPlzajJCS
-w/BGshqVeXV72DfeJgzpsOfatUQOf4H0zBky7XTcEroTSZvGfWenTwOg1tpydiQF
-jo5uAnMIauAzpcAwslc9Y/KDBH0nY+pzfHz5fwIDAQABAoIBAHF3FDn+lHo/Aw5t
-II+YTOd9E+aPFtOw+/aiwV1JwWyKKLpKuxQ/as8LAtv5g0gDN1CYvALONE+1/clo
-m0oIY/pEzdcD+8W2WlMvXy8ctRpciXSY0xSaI1cjniTLiy99TVJXTPbBBY7tLFoV
-3isSouAmr0xDFQmlAP/6LhPnsqtRiYcKwStl12453uv0pIelWrQk0k+BLqQ+Nj3N
-mSE7rlgiaZPI2suF/0+G8LOiu4PhUb+aIMp4Cks1jIKAw2ulSUGsVUr5GvgAXc0I
-AFlvNUNuZfmAMueS1A9PWvJJj+H2uN471+sjjytAhbtgbKtz+42fv9S+7rmrrheE
-Y30e4gkCgYEAyudzmgsS1TmVNwHNkFz9hGE4+k2E1yAvS4RqsZu1Yj/dnpmQNEWm
-V1KeruQ3xitM3woIUNz5RIsIbQOcUQTJv3kJOOhML4uKcoXHnTS1qhGowtlNCu0r
-7EBZrCy8OglJ2vX45Dfz245YWt7mSs8r1Rjfphm5RFfhq4lLXJAnD00CgYEAyWe8
-uzQN/qiJwOAdEAgmG3lAg3PbOw0xQLD2lXNB7WpTnrfYivf2JPWqfHaAFdOHcnel
-bmWDIVPdvMTYeEL95ThL28jlrBdVxFPHg0/LhJRbU8e3V2vrXgyFXus7hlQCsnqI
-F6e7c0txt3/zd+1M09VqqEvGUD2BujYLBb8qXfsCgYAS4fVFKbCn/ULgqp9Jxw2k
-yzN1P8+UAZ/FJF6VhssbiJwETYA5DR5M1BiGaCC0pYTy4MkjVV0xPssa8hITDCIG
-Wqo8DIpChnbs73xDKguZ9yjAcV6VHLtQsjBmMIeX0xN3eBqgioB8N0QLuOCvp5YJ
-r9XobE5siM0snItR4uxvpQKBgFXNbAoU0yF6i7UvxTHfRtzNez6FTRCLPkBhI6vn
-vl52vckQaaBKowJ75nW/xjGGPF33uvKdLJA2OnEBK3eQkrnkkezAWZhHGLLbPlQi
-2oFQ8tdubh1ATLV0gB0/+cvwXnXK3c+2FZW4vml+iSq+XcyhTx8DqSjmCy5Zd7ir
-CFGhAoGALI1Jq620D3KmfPsLQ8vv5mkTn0HsVw3rkG+vAPohC5QgnFi7O8DQXuYN
-RkQUpo+GlFWF+JAo6QQSH5kPBiv30uMgzwNZEA3FBwiN2sLJzhQZA7Qh9pjLxVcK
-DrU4jQ5l4EJKovv0dw4ngrcJzL7DPVicZP1mXNi+htmND4JYMak=
------END RSA PRIVATE KEY-----"
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.EC2_SECRET_KEY }}
         source: "templates,assets,main"
-        target: /home/ec2_user
+        target: /home/${{ secrets.EC2_USERNAME }}
 
     - name: Restart service
       uses: appleboy/ssh-action@v1.0.3
